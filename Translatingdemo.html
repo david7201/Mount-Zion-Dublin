@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church Website with EN-RO Language Switcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .language-toggle {
+            margin-top: 20px;
+        }
+        .language-toggle a {
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #333;
+            color: white;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .language-toggle a:hover {
+            background-color: #555;
+        }
+        .content {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+<br>
+<br>
+<br>
+
+    
+<!-- Language Toggle Buttons -->
+    <div class="language-toggle">
+        <a href="#" onclick="switchLanguage('en')">EN</a> | 
+        <a href="#" onclick="switchLanguage('ro')">RO</a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <!-- Content Section That Will Update Dynamically -->
+    <div id="content">
+        <h1 id="title"></h1>
+        <p id="description"></p>
+        <br>
+<br>
+
+        <a id="button" class="btn"></a>
+    </div>
+
+    <script>
+        // JSON object storing content for both English and Romanian
+        const content = {
+            en: {
+                title: "Welcome to the Church",
+                description: "We are a Christian community serving with passion. Join us in worship and celebration.",
+                buttonText: "Learn More"
+            },
+            ro: {
+                title: "Bine ați venit la biserică",
+                description: "Suntem o comunitate creștină care slujește cu pasiune. Alăturați-vă nouă la închinare și celebrare.",
+                buttonText: "Aflați mai multe"
+            }
+        };
+
+        // Function to switch language
+        function switchLanguage(lang) {
+            // Update the content dynamically
+            document.getElementById('title').innerText = content[lang].title;
+            document.getElementById('description').innerText = content[lang].description;
+            document.getElementById('button').innerText = content[lang].buttonText;
+        }
+
+        // Default language when the page loads
+        window.onload = function() {
+            switchLanguage('en'); // Set default to English
+        
+        };
+
+
+
+    // Function to load the navbar from header.html
+    function loadNavbar() {
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                // Insert navbar content into the placeholder
+                document.getElementById('navbar-placeholder').innerHTML = data;
+
+                // After loading the navbar, bind the hamburger menu toggle function
+                document.getElementById('hamburger-icon').addEventListener('click', openMenu);
+                document.getElementById('close-btn').addEventListener('click', closeMenu);
+            })
+            .catch(error => console.log('Error loading navbar:', error));
+    }
+
+    // Function to open the mobile menu
+    function openMenu() {
+        document.getElementById('mobile-menu').classList.add('open');
+    }
+
+    // Function to close the mobile menu
+    function closeMenu() {
+        document.getElementById('mobile-menu').classList.remove('open');
+    }
+
+    // Call the function to load the navbar
+    loadNavbar();
+
+
+    </script>
+</body>
+</html>

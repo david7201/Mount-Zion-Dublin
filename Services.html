@@ -1,0 +1,31 @@
+<div id="navbar-placeholder"></div>
+
+<script>
+    // Function to load the navbar from header.html
+    function loadNavbar() {
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                // Insert navbar content into the placeholder
+                document.getElementById('navbar-placeholder').innerHTML = data;
+
+                // After loading the navbar, bind the hamburger menu toggle function
+                document.getElementById('hamburger-icon').addEventListener('click', openMenu);
+                document.getElementById('close-btn').addEventListener('click', closeMenu);
+            })
+            .catch(error => console.log('Error loading navbar:', error));
+    }
+
+    // Function to open the mobile menu
+    function openMenu() {
+        document.getElementById('mobile-menu').classList.add('open');
+    }
+
+    // Function to close the mobile menu
+    function closeMenu() {
+        document.getElementById('mobile-menu').classList.remove('open');
+    }
+
+    // Call the function to load the navbar
+    loadNavbar();
+</script>

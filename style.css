@@ -1,0 +1,404 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: url('logo/blk-wht.png');
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100%;
+    background-color: #f0f0f0; /* Fallback background color if needed */
+}
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    position: absolute; /* Transparent over the image */
+    width: 100%;
+    z-index: 10; /* Stay on top of the hero section */
+    background-color: transparent; /* Transparent background */
+}
+
+/* Navbar content */
+.navbar-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 30px; /* Space between links */
+}
+
+.navbar ul li {
+    display: inline-block;
+}
+
+.navbar ul li a {
+    color: black; /* Black text */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+}
+
+/* Hover effect with black line swiping underneath */
+.navbar ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.navbar ul li a:hover::after {
+    width: 100%; /* Full width line on hover */
+}
+
+/* Hamburger icon styling */
+.hamburger {
+    display: none; /* Hidden on larger screens */
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Fullscreen for all devices */
+    background: url('mtzion4.png') no-repeat center center;
+    background-size: cover; /* Cover the screen for mobile and smaller tablets */
+    background-position: center center; /* Keep the center of the image in focus */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Slight darkened overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #333;
+}
+
+
+/* Fullscreen Mobile Menu */
+#mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9); /* Black fullscreen background */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    text-align: center;
+    transition: 0.3s;
+}
+
+#mobile-menu.open {
+    display: flex;
+}
+
+#mobile-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#mobile-menu ul li {
+    margin: 20px 0;
+}
+
+#mobile-menu ul li a {
+    color: white;
+    font-size: 2em;
+    text-decoration: none;
+    position: relative;
+}
+
+#mobile-menu ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+#mobile-menu ul li a:hover::after {
+    width: 100%;
+}
+
+/* Close button for mobile menu */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2.5em;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsive: Show hamburger icon and hide regular navbar on small screens */
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none; /* Hide regular navbar */
+    }
+
+    .hamburger {
+        display: inline-block; /* Show hamburger icon */
+        position: absolute;
+        right: 20px;
+    }
+}
+@media (min-width: 940px) {
+    .hero {
+        background-size: auto; /* Fix the image size */
+        background-position: center center; /* Keep the image centered */
+        background-repeat: no-repeat;
+        background-color: #f0f0f0; /* Match the background color to the image */
+    }
+}
+/* Media queries for responsive scaling
+@media (min-width: 768px) {
+    .hero-content h1 {
+        font-size: 4em;
+    }
+
+    .hero-content p {
+        font-size: 1.5em;
+    }
+
+    .btn {
+        font-size: 1.3em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hero {
+        height: 100vh; 
+    }
+
+    .hero-content h1 {
+        font-size: 3.5em; 
+    }
+
+    .hero-content p {
+        font-size: 1.5em;
+    }
+
+    .btn {
+        font-size: 1.3em;
+    }
+} */
+
+/* For smaller screens (max 1024px) */
+@media (max-width: 1024px) {
+    .hero {
+        height: 100vh; /* Full height for smaller screens */
+    }
+}
+
+/* For laptops (between 1025px and 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .hero {
+        height: 85vh; /* Slightly reduce height for laptops */
+    }
+}
+
+/* For larger screens (1441px and up) */
+@media (min-width: 1441px) {
+    .hero {
+        height: 80vh; /* Further reduce height for large desktops */
+    }
+
+    .hero-content h1 {
+        font-size: 3.5em; /* Adjust text sizes */
+    }
+
+    .hero-content p {
+        font-size: 1.4em;
+    }
+
+    .btn {
+        font-size: 1.3em;
+    }
+}
+
+/***********************************CONTACT PAGE CSS*************************/
+
+//* Background for the body */
+body {
+    background: url('../logo/blk-wht.png') no-repeat center center fixed;
+    background-size: cover; /* Cover the entire viewport */
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure full height coverage */
+}
+
+/* Church contact section with a solid white background */
+.church-contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure section fills the viewport on all devices */
+    background: transparent no-repeat center center fixed;
+    padding: 20px; /* Extra padding to account for smaller screens */
+}
+
+/* Contact container with responsive styling */
+.church-contact-container {
+    background-color: white; /* White background for the container */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px; /* Max width for larger screens */
+    text-align: center;
+}
+
+/* Responsive typography */
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Typography for different elements */
+.contact-info h2 {
+    font-size: 1.5em;
+    color: #555;
+}
+
+.contact-info p {
+    font-size: 1.2em;
+    color: #777;
+}
+
+/* Link styling */
+.contact-info a {
+    text-decoration: none;
+    color: #007BFF;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #0056b3;
+}
+
+/* Media queries for responsiveness */
+
+/* Small devices (max-width: 767px) - Mobile phones */
+@media (max-width: 767px) {
+    h1 {
+        font-size: 2em; /* Smaller font size on mobile */
+    }
+    
+    .church-contact-container {
+        padding: 20px; /* Reduce padding for smaller devices */
+    }
+
+    .contact-info h2 {
+        font-size: 1.2em; /* Smaller font for headings */
+    }
+
+    .contact-info p {
+        font-size: 1em; /* Smaller font for paragraphs */
+    }
+
+    .contact-details {
+        gap: 20px; /* Smaller gap between items */
+    }
+}
+
+/* Medium devices (768px - 1024px) - Tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+    h1 {
+        font-size: 2.2em; /* Adjust font size for tablets */
+    }
+    
+    .church-contact-container {
+        padding: 30px; /* Adjust padding for tablets */
+    }
+
+    .contact-info h2 {
+        font-size: 1.3em; /* Adjust heading font size */
+    }
+
+    .contact-info p {
+        font-size: 1.1em; /* Adjust paragraph font size */
+    }
+}
+
+/* Large devices (1025px and up) - Desktops */
+@media (min-width: 1025px) {
+    h1 {
+        font-size: 2.5em; /* Larger font size for desktop */
+    }
+    
+    .church-contact-container {
+        padding: 40px; /* Default padding for larger screens */
+    }
+
+    .contact-info h2 {
+        font-size: 1.5em; /* Larger heading font size */
+    }
+
+    .contact-info p {
+        font-size: 1.2em; /* Larger paragraph font size */
+    }
+}

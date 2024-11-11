@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church Contact Details</title>
+    <link rel="stylesheet" href="css/contact.css"> 
+    <link rel="stylesheet" href="css/styles.css"> 
+
+</head>
+
+
+<!-- Navbar Placeholder -->
+<div id="navbar-placeholder"></div>
+
+<header class="masthead">
+    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                <h1 class="mx-auto my-0 text-uppercase">Contact Us</h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">View below for details</h2>
+            </div>
+        </div>
+    </div>
+</header>
+        <div id="navbar-placeholder"></div>
+
+        <section class="church-contact-section py-5 bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <!-- Address Section -->
+                    <div class="col-md-8 mb-4">
+                        <div class="contact-info bg-white p-4 rounded shadow-sm text-center">
+                            <i class="fas fa-map-marker-alt fa-2x text-primary mb-3"></i>
+                            <h2>Address</h2>
+                            <p>THE ROMANIAN PENTECOSTAL CHURCH "MOUNT ZION"</p>
+                            <p>GROWTOWN DUNSHAUGHLIN</p>
+                            <p>CO. MEATH</p>
+                            <p>A85 WY1</p>
+                        </div>
+                    </div>
+        
+                    <!-- Email Section -->
+                    <div class="col-md-8 mb-4">
+                        <div class="contact-info bg-white p-4 rounded shadow-sm text-center">
+                            <i class="fas fa-envelope fa-2x text-primary mb-3"></i>
+                            <h2>Email</h2>
+                            <p><a href="mailto:mountziondublin@gmail.com" class="text-dark">mountziondublin@gmail.com</a></p>
+                        </div>
+                    </div>
+        
+                    <!-- Phone Section -->
+                    <div class="col-md-8 mb-4">
+                        <div class="contact-info bg-white p-4 rounded shadow-sm text-center">
+                            <i class="fas fa-phone-alt fa-2x text-primary mb-3"></i>
+                            <h2>Phone</h2>
+                            <p><a href="tel:+353894524148" class="text-dark">+353 089 452 4148</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+
+    <script>
+        // Function to load the navbar from header.html
+        function loadNavbar() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    // Insert navbar content into the placeholder
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+
+                    // After loading the navbar, bind the hamburger menu toggle function
+                    document.getElementById('hamburger-icon').addEventListener('click', openMenu);
+                    document.getElementById('close-btn').addEventListener('click', closeMenu);
+                })
+                .catch(error => console.log('Error loading navbar:', error));
+        }
+
+        // Function to open the mobile menu
+        function openMenu() {
+            document.getElementById('mobile-menu').classList.add('open');
+        }
+
+        // Function to close the mobile menu
+        function closeMenu() {
+            document.getElementById('mobile-menu').classList.remove('open');
+        }
+
+        // Call the function to load the navbar
+        loadNavbar();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100%;
+    background-color: #fff; /* White background to match the image */
+}
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    position: absolute; /* Transparent over the image */
+    width: 100%;
+    z-index: 10; /* Stay on top of the hero section */
+    background-color: transparent; /* Transparent background */
+}
+
+/* Navbar content */
+.navbar-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 30px; /* Space between links */
+}
+
+.navbar ul li {
+    display: inline-block;
+}
+
+.navbar ul li a {
+    color: black; /* Black text */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+}
+
+/* Hover effect with black line swiping underneath */
+.navbar ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.navbar ul li a:hover::after {
+    width: 100%; /* Full width line on hover */
+}
+
+/* Hamburger icon styling */
+.hamburger {
+    display: none; /* Hidden on larger screens */
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+}
+
+/* Default for smaller screens (below 940px) */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Fullscreen for mobile and smaller tablets */
+    background: url('logo/mtzion4.png') no-repeat center center;
+    background-size: cover; /* Cover the screen for mobile */
+    background-position: center center; /* Keep the center of the image focused */
+}
+
+/* Overlay for better readability */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Slight darkened overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #333;
+}
+
+
+/* Fullscreen Mobile Menu */
+#mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9); /* Black fullscreen background */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    text-align: center;
+    transition: 0.3s;
+}
+
+#mobile-menu.open {
+    display: flex;
+}
+
+#mobile-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#mobile-menu ul li {
+    margin: 20px 0;
+}
+
+#mobile-menu ul li a {
+    color: white;
+    font-size: 2em;
+    text-decoration: none;
+    position: relative;
+}
+
+#mobile-menu ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+#mobile-menu ul li a:hover::after {
+    width: 100%;
+}
+
+/* Close button for mobile menu */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2.5em;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsive: Show hamburger icon and hide regular navbar on small screens */
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none; /* Hide regular navbar */
+    }
+
+    .hamburger {
+        display: inline-block; /* Show hamburger icon */
+        position: absolute;
+        right: 20px;
+    }
+}
+@media (min-width: 940px) {
+    .hero {
+        background-image: url('logo/mtzion4.png');
+        background-size: 1500px 950px; /* Set fixed size for the background image */
+        background-repeat: no-repeat;
+        background-position: center; /* Keep the image centered */
+        background-color: #FFFFFF; /* Match the background color to the image */
+    }
+}
+/* Media queries for responsive scaling
+@media (min-width: 768px) {
+    .hero-content h1 {
+        font-size: 4em;
+    }
+
+    .hero-content p {
+        font-size: 1.5em;
+    }
+
+    .btn {
+        font-size: 1.3em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hero {
+        height: 100vh; 
+    }
+
+    .hero-content h1 {
+        font-size: 3.5em; 
+    }
+
+    .hero-content p {
+        font-size: 1.5em;
+    }
+
+    .btn {
+        font-size: 1.3em;
+    }
+} */
+
+
+
+
