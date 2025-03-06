@@ -12,6 +12,7 @@ body {
     background-color: #fff; /* White background to match the image */
 }
 
+
 /* Navbar container */
 .navbar {
     display: flex;
@@ -65,6 +66,8 @@ body {
 .navbar ul li a:hover::after {
     width: 100%; /* Full width line on hover */
 }
+
+
 
 /* Hamburger icon styling */
 .hamburger {

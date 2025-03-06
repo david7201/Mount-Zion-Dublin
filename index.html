@@ -16,9 +16,22 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
+<!-- Disclaimer Popup -->
+<div id="disclaimerPopup" class="popup-container">
+    <div class="popup-content">
+        <h2>DISCLAIMER!!!</h2>
+        <p>Our church is currently under construction. Services are being held at a different location.</p>
+        <div class="buttons-container">
+            <button onclick="closeDisclaimer()" class="continue-btn">Accept</button>
+            <a href="https://maps.app.goo.gl/1Qcd51AxkUctyZXP8" class="reject-btn">Go to Current Church</a>
+        </div>
+    </div>
+</div>
+
+        
         <div id="navbar-placeholder"></div>
 
-        </nav> -->
+
         <!-- Masthead-->
         <header class="masthead">
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
@@ -262,6 +275,9 @@
                     <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
                 </div>
             </div>
+
+ 
+
         </section>
         <!-- Footer-->
         <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2023</div></footer>
@@ -269,10 +285,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 
@@ -292,6 +304,19 @@
             })
             .catch(error => console.log('Error loading navbar:', error));
     }
+
+
+    window.onload = function() {
+        document.getElementById('disclaimerPopup').style.display = 'block'; // Show popup
+        document.body.classList.add("blur-background"); // Apply blur effect to content
+    };
+
+    function closeDisclaimer() {
+        document.getElementById('disclaimerPopup').style.display = 'none'; // Hide popup
+        document.body.classList.remove("blur-background"); // Remove blur
+    }
+
+
 
     // Function to open the mobile menu
     function openMenu() {
